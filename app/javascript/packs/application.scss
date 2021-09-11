@@ -1,0 +1,10 @@
+// Import Bootstrap v5
+@import "~bootstrap/scss/bootstrap";
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
