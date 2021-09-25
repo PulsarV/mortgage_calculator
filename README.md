@@ -1,24 +1,50 @@
-# README
+# Mortgage Calculator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The project requirements
 
-Things you may want to cover:
+Ruby 3.0.2
+Postgres >= 9.2
+NodeJS 14.7.4
+Yarn 1.22.11
 
-* Ruby version
+## Setup local environment
 
-* System dependencies
+1. [Install NodeJS + Npm](https://nodejs.org/en/download/) on your PC
+1. [Install Yarn](https://classic.yarnpkg.com/en/docs/install) on your PC
+1. Clone the project repository:
+   ```shell
+   git clone git@github.com:PulsarV/mortgage_calculator.git && cd mortgage_calculator
+   ```
+1. Install required gems:
+   ```shell
+   bundle install
+   ```
+1. Install required JS packages:
+   ```shell
+   yarn install
+   ```
+1. Create the project .env file:
+   ```shell
+   cp .env.dist .env
+   ```
+1. Update Postgres server configuration in the ```.env``` file (for local development environment update only ```DB_USER``` and ```DB_PASSWORD```)
+1. Create database:
+   ```shell
+   bundle exec rails db:create
+   ```
+1. Run migrations:
+   ```shell
+   bundle exec rails db:migrate
+   ```
+1. Run local server:
+   ```shell
+   bundle exec rails s
+   ```
+1. Open [project](http://localhost:3000) in your browser
 
-* Configuration
+## Run linters
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Rubocop
+   ```shell
+   bundle exec rubocop
+   ```
