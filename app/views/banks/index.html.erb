@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10">
+      <h1>Banks</h1>
+    </div>
+    <div class="col-sm-2">
+      <%= link_to "Add New Bank", new_bank_path, class: 'btn btn-primary w-100' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped my-5">
+        <thead>
+        <tr>
+          <th>Bank Name</th>
+          <th>Interest Rate</th>
+          <th>Maximum Loan</th>
+          <th>Minimum Down Payment</th>
+          <th>Loan Term</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @banks.each do |bank| %>
+          <tr>
+            <td><%= bank.name %></td>
+            <td><%= number_with_precision(bank.interest_rate, strip_insignificant_zeros: true, precision: 2) %></td>
+            <td><%= number_with_precision(bank.max_loan, strip_insignificant_zeros: true, precision: 2) %></td>
+            <td><%= number_with_precision(bank.min_down_payment, strip_insignificant_zeros: true, precision: 2) %></td>
+            <td><%= bank.loan_term %></td>
+            <td>
+              <%= link_to edit_bank_path(bank), class: 'btn p-0 me-1' do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+
+              <%= link_to new_bank_calculation_path(bank), class: 'btn p-0 me-1' do %>
+                <i class="fas fa-calculator"></i>
+              <% end %>
+
+              <%= link_to bank_calculations_path(bank), class: 'btn p-0 me-1' do %>
+                <i class="fas fa-history"></i>
+              <% end %>
+
+              <%= link_to bank_path(bank), method: :delete, class: 'btn p-0 me-1', data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="container pagination justify-content-center">
+        <%= paginate @banks, pagination_class: "pagination-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<%= form_with model: bank do |form| %>
+  <div class="mb-1">
+    <%= form.label :name, 'Bank Name', class: 'form-label' %><br>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-1">
+    <%= form.label :interest_rate, 'Interest Rate (%)', class: 'form-label' %><br>
+    <%= form.number_field :interest_rate, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-1">
+    <%= form.label :max_loan, 'Maximum Loan', class: 'form-label' %><br>
+    <%= form.number_field :max_loan, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-1">
+    <%= form.label :min_down_payment, 'Minimum Down Payment', class: 'form-label' %><br>
+    <%= form.number_field :min_down_payment, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-5">
+    <%= form.label :loan_term, 'Loan Term', class: 'form-label' %><br>
+    <%= form.number_field :loan_term,class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit class:'btn btn-primary col-sm-12' %>
+  </div>
+<% end %>

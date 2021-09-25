@@ -1,0 +1,25 @@
+<%= form_with model: [@bank, calculation] do |form| %>
+  <div class="mb-1">
+    <%= form.label :initial_loan, 'Initial Loan', class: 'form-label' %><br>
+    <%= form.number_field :initial_loan, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-1">
+    <%= form.label :down_payment, 'Down Payment', class: 'form-label' %><br>
+    <%= form.number_field :down_payment, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="mb-1">
+    <%= form.label :interest_rate, 'Interest Rate', class: 'form-label' %><br>
+    <%= form.number_field :interest_rate, readonly: true, value: @bank.interest_rate, class: "form-control" %>
+  </div>
+
+  <div class="mb-5">
+    <%= form.label :loan_term, 'Loan Term', class: 'form-label' %><br>
+    <%= form.number_field :loan_term, readonly: true, value: @bank.loan_term, class: "form-control" %>
+  </div>
+
+  <div>
+    <%= form.submit class:'btn btn-primary col-sm-12', value: 'Calculate' %>
+  </div>
+<% end %>
