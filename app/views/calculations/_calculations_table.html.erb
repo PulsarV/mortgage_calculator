@@ -1,0 +1,22 @@
+<table class="table table-striped my-5">
+  <thead>
+  <tr>
+    <th>Initial Loan</th>
+    <th>Down Payment</th>
+    <th>Loan Term</th>
+    <th>Interest Rate (%)</th>
+    <th>Monthly Payment</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @calculations.each do |calculation| %>
+    <tr>
+      <td><%= number_with_precision(calculation.initial_loan, strip_insignificant_zeros: true, precision: 2) %></td>
+      <td><%= number_with_precision(calculation.down_payment, strip_insignificant_zeros: true, precision: 2) %></td>
+      <td><%= calculation.loan_term %></td>
+      <td><%= number_with_precision(calculation.interest_rate, strip_insignificant_zeros: true, precision: 2) %></td>
+      <td><%= number_with_precision(calculation.monthly_payment, strip_insignificant_zeros: true, precision: 2) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

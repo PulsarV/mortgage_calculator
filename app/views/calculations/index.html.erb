@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Mortgages calculations history of the "<%= @bank.name %>" bank</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @calculations.present? %>
+        <%= render 'calculations_table' %>
+        <div class="container pagination justify-content-center">
+          <%= paginate @calculations, pagination_class: "pagination-sm" %>
+        </div>
+      <% else %>
+        <h5 class="mt-5">Calculations for this bank have not yet been made.</h5>
+      <% end %>
+    </div>
+  </div>
+</div>
